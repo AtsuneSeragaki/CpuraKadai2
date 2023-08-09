@@ -28,11 +28,15 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	while (ProcessMessage() != -1)
 	{
+		ClearDrawScreen();  // 画面の初期化
+
 		fps.Update();	//FPS計測
-		fps.Wait();		//FPS同期
+		
 		InputController::Update();
 		sceneManager.Update();
 		sceneManager.Draw();
+
+		fps.Wait();		//FPS同期
 
 		#ifdef _DEBUG
 		fps.Draw();		//FPS描画
@@ -43,6 +47,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		{
 			break;
 		}
+
+		ScreenFlip();  // 裏画面の内容を表画面に反映
 	}
 
 	DxLib_End(); // DXライブラリ使用の終了処理

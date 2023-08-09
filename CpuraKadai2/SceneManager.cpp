@@ -34,7 +34,6 @@ void SceneManager::Update()
 // 描画処理
 void SceneManager::Draw() const
 {
-	ClearDrawScreen();	// 画面の初期化
 
 	// シーン画面の描画
 	if (now_scene != nullptr)
@@ -42,7 +41,6 @@ void SceneManager::Draw() const
 		now_scene->Draw();
 	}
 
-	ScreenFlip();	   // 裏画面の内容を表画面に反映
 }
 
 // 遷移先の指定処理

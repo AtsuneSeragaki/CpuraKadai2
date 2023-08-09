@@ -155,6 +155,7 @@
     <ClCompile Include="BulletsSpawner.cpp" />
     <ClCompile Include="CharaBase.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="FPS.cpp" />
     <ClCompile Include="GameClearScene.cpp" />
     <ClCompile Include="GameMainScene.cpp" />
     <ClCompile Include="GameOverScene.cpp" />
