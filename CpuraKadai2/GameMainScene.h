@@ -17,6 +17,7 @@ public:
 	
 	void Update() override;      // 更新処理
 	void Draw() const override;  // 描画処理
+	SceneBase* Change() override;    // 遷移先の指定
 
 	void SpawnBullet();  // 弾の配列に新しくデータを作成する
 

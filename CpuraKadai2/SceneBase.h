@@ -3,7 +3,9 @@
 class SceneBase
 {
 public:
-	virtual void Update() = 0;
-	virtual void Draw() const = 0;
+	~SceneBase() {};
+	virtual void Update() = 0;         // XVˆ—
+	virtual void Draw() const = 0;     // •`‰æˆ—
+	virtual SceneBase* Change() = 0;   // ‘JˆÚæ‚Ìw’è
 };
 
