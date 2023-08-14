@@ -4,10 +4,19 @@
 class GameMainScene : public SceneBase
 {
 private:
+
+	struct PlayerData
+	{
+		float x;
+		float y;
+	};
+
+
 	int player;    // プレイヤー変数
 	int life;      // プレイヤーの残機
 	int* enemy;    // 敵のポインタ配列
 	int* bullets;  // 弾のポインタ配列
+
 
 public:
 	GameMainScene();   // コンストラクタ

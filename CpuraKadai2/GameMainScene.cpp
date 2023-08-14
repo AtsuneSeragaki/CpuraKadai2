@@ -2,7 +2,14 @@
 #include "InputController.h"
 #include "GameOverScene.h"
 #include "GameClearScene.h"
+#include "CharaBase.h"
+#include "Player.h"
+#include "Enemy.h"
 #include "DxLib.h"
+
+Player pla;
+Enemy* ene;
+
 
 // コンストラクタ
 GameMainScene::GameMainScene()
@@ -32,8 +39,8 @@ void GameMainScene::Draw() const
 	DrawFormatString(0, 20, 0xffffff, "Aでゲームオーバー画面へ");
 	DrawFormatString(0, 40, 0xffffff, "Bでゲームクリア画面へ");
 
-
 #endif // DEBUG
+	pla.Draw();
 }
 
 // 遷移先を指定

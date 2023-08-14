@@ -11,8 +11,8 @@ public:
 	Player();   // コンストラクタ
 	~Player();  // デストラクタ
 
-	void Update(GameMainScene*) override;  // 更新処理(引数にゲームメインシーンのポインタを受け取る)
-	void Draw() const override;            // 描画処理
+   void Update(GameMainScene* gamemain) override;  // 更新処理(引数にゲームメインシーンのポインタを受け取る)
+   void Draw() const override;            // 描画処理
 
 	void Hit(int damage) override;  // ダメージを受けた時の処理(引数でダメージを受け取る)
 };
