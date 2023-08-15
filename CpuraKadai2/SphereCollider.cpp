@@ -4,6 +4,8 @@
 // コンストラクタ
 SphereCollider::SphereCollider()
 {
+	location = 0.0f;
+	radius = 0.0f;
 }
 
 // デストラクタ

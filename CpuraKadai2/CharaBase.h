@@ -3,11 +3,12 @@
 #include "GameMainScene.h"
 class CharaBase : public SphereCollider
 {
-public:
-
+protected:
+	float x, y;   // 座標 
 	float speed;  // 速度
 	int image;    // 画像用変数
 
+public:
 	CharaBase();   // コンストラクタ
 	~CharaBase();  // デストラクタ
 

@@ -5,7 +5,9 @@
 // コンストラクタ
 CharaBase::CharaBase()
 {
-	speed = 0;
+	x = 0.0f;
+	y = 0.0f;
+	speed = 0.0f;
 	image = 0;
 }
 

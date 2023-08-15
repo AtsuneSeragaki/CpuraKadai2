@@ -5,6 +5,7 @@
 class Enemy : public CharaBase
 {
 private:
+
 	int hp;     // 敵のHP
 	int point;  // スコアの加算量
 	int weapon; // 武器(BulletsSpawnerの子クラス)

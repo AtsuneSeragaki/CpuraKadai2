@@ -3,6 +3,7 @@
 #include "FPS.h"
 #include "InputController.h"
 #include "TitleScene.h"
+#include "GameMainScene.h"
 
 // プログラムは WinMain から始まります
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
@@ -23,7 +24,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	SetDrawScreen(DX_SCREEN_BACK);	// 描画先画面を裏にする
 
 	// 変数定義
-	SceneManager sceneManager(dynamic_cast<SceneBase*>(new TitleScene));
+	SceneManager sceneManager(dynamic_cast<SceneBase*>(new GameMainScene));
 	FPS fps;
 
 	while (ProcessMessage() != -1)
@@ -32,7 +33,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		fps.Update();	//FPS計測
 		
-		InputController::Update();
+		
 		sceneManager.Update();
 		sceneManager.Draw();
 

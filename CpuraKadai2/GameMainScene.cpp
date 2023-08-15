@@ -5,19 +5,18 @@
 #include "CharaBase.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "Bullet.h"
 #include "DxLib.h"
 
-Player pla;
-Enemy* ene;
-
+Player player;
+Enemy* enemy;
+Bullet* bullet;
 
 // コンストラクタ
 GameMainScene::GameMainScene()
 {
-	player = 0;   // プレイヤー変数
 	life = 0;     // プレイヤーの残機
-	enemy = 0;    // 敵のポインタ配列
-	bullets = 0;  // 弾のポインタ配列
+	
 }
 
 // デストラクタ
@@ -28,6 +27,9 @@ GameMainScene::~GameMainScene()
 // 更新処理
 void GameMainScene::Update()
 {
+	player.Update(0);
+	/*enemy->Update(0);
+	bullet->Update();*/
 }
 
 // 描画処理
@@ -40,7 +42,9 @@ void GameMainScene::Draw() const
 	DrawFormatString(0, 40, 0xffffff, "Bでゲームクリア画面へ");
 
 #endif // DEBUG
-	pla.Draw();
+	player.Draw();
+	/*enemy->Draw();
+	bullet->Draw();*/
 }
 
 // 遷移先を指定
