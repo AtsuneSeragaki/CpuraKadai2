@@ -30,8 +30,10 @@ void Player::Update(GameMainScene* gamemain)
 // 描画処理
 void Player::Draw() const
 {
-	DrawBox(x, y, x + 40, y + 50, 0xffffff, TRUE);
+#ifdef _DEBUG
 	DrawFormatString(0, 150, 0xffffff, "%d",stickX);
+#endif // DEBUG
+	DrawBox(x, y, x + 40, y + 50, 0xffffff, TRUE);
 }
 
 // ダメージを受けた時の処理(引数でダメージを受け取る)
