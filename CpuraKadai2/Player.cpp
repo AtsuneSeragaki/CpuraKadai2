@@ -6,12 +6,13 @@
 // コンストラクタ
 Player::Player()
 {
+	playerImg = 0;
 	stickX = 0;
 	stickY = 0;
 	x = 100.0f;
 	y = 360.0f;
 	score = 0;
-	weapon = 0;
+	weapon = 0;	
 }
 
 // デストラクタ
@@ -33,7 +34,7 @@ void Player::Draw() const
 #ifdef _DEBUG
 	DrawFormatString(0, 150, 0xffffff, "%d",stickX);
 #endif // DEBUG
-	DrawBox(x, y, x + 40, y + 50, 0xffffff, TRUE);
+	DrawBox((int)x, (int)y, (int)x + 40, (int)y + 50, 0xffffff, TRUE);
 }
 
 // ダメージを受けた時の処理(引数でダメージを受け取る)

@@ -5,6 +5,7 @@ class Player : public CharaBase
 {
 private:
 	int stickX, stickY;
+	int playerImg;
 	int score;   // ƒXƒRƒA
 	int weapon;  // •Ší()
 
