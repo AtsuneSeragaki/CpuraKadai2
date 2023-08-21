@@ -6,11 +6,13 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "Bullet.h"
+#include "BulletsSpawner.h"
 #include "DxLib.h"
 
 Player player;
-Enemy* enemy;
+Enemy enemy;
 Bullet* bullet;
+BulletsSpawner bulletsSpawner;
 
 // コンストラクタ
 GameMainScene::GameMainScene()
@@ -30,7 +32,8 @@ GameMainScene::~GameMainScene()
 void GameMainScene::Update()
 {
 	// プレイヤーの更新処理
-	player.Update(0);
+	player.Update();
+	enemy.Update();
 	// 背景画像のスクロール処理
 	BackScrool();
 }
@@ -52,20 +55,24 @@ void GameMainScene::Draw() const
 	DrawGraph(stageImgX - 1280, stageImgY, stageImg, FALSE);
 	// プレイヤーの表示
 	player.Draw();
-	
+	if (InputController::GetBotton(PAD_INPUT_3) == TRUE)
+	{
+		bullet->Draw();
+	}
+	enemy.Draw();
 }
 
 // 遷移先を指定
 SceneBase* GameMainScene::Change()
 {
 	
-	if (InputController::GetBottonDown(PAD_INPUT_A))
+	if (InputController::GetBottonDown(PAD_INPUT_1) == TRUE)
 	{
 		// Zキーが押された＆メニューナンバー0でゲームメインへ
-		return new GameOverScene();
+		return new GameClearScene();
 	}
 
-	if (InputController::GetBottonDown(PAD_INPUT_B))
+	if (InputController::GetBottonDown(PAD_INPUT_2) == TRUE)
 	{
 		// Zキーが押された＆メニューナンバー0でゲームメインへ
 		return new GameClearScene();

@@ -3,6 +3,8 @@
 #include "InputController.h"
 #include "DxLib.h"
 
+int Player::mileage = 0;
+
 // コンストラクタ
 Player::Player()
 {
@@ -13,6 +15,7 @@ Player::Player()
 	y = 360.0f;
 	score = 0;
 	weapon = 0;	
+	speed = 2;
 }
 
 // デストラクタ
@@ -21,7 +24,7 @@ Player::~Player()
 }
 
 // 更新処理
-void Player::Update(GameMainScene* gamemain)
+void Player::Update()
 {
 	InputController::Update();
 	GetJoypadAnalogInput(&stickX, &stickY, DX_INPUT_PAD1);
@@ -45,6 +48,10 @@ void Player::Hit(int damage)
 // プレイヤーの移動処理
 void Player::PlayerMove()
 {
+	
+	mileage += speed;
+	
+
 	if (stickX > 0)
 	{
 		x += 10.0f;

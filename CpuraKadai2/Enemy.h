@@ -5,13 +5,13 @@
 
 // 敵機の構造体
 struct ENEMY {
-	int flg; // 使用フラグ
-	int type; // タイプ
-	int img; // 画像
-	int x, y, w, h; // 座標、幅、高さ
-	int speed; // 移動速度
-	int hp;     // 敵のHP
-	int point; // スコア加算ポイント
+	int flg = FALSE; // 使用フラグ
+	int type = 0; // タイプ
+	int img = LoadGraph("images/cone.bmp"); // 画像
+	int x = 0, y = 0, w = 0, h = 0; // 座標、幅、高さ
+	int speed = 0; // 移動速度
+	int hp = 0;     // 敵のHP
+	int point = 0; // スコア加算ポイント
 };
 
 class Enemy : public CharaBase
@@ -25,7 +25,7 @@ public:
 	Enemy();   // コンストラクタ
 	~Enemy();  // デストラクタ
 
-	void Update(GameMainScene* gamemain) override;  // 更新処理(引数にゲームメインシーンのポインタを受け取る)
+	void Update() override;  // 更新処理(引数にゲームメインシーンのポインタを受け取る)
 	void Draw() const override;            // 描画処理
 
 	void EnemyMove();  // 敵の移動処理

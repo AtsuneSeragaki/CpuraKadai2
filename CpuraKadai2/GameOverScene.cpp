@@ -32,7 +32,7 @@ void GameOverScene::Draw() const
 // 遷移先を指定
 SceneBase* GameOverScene::Change()
 {
-	if (InputController::GetBottonDown(PAD_INPUT_A))
+	if (InputController::GetBottonDown(PAD_INPUT_4)==TRUE)
 	{
 		// Zキーが押された＆メニューナンバー0でゲームメインへ
 		return new TitleScene();

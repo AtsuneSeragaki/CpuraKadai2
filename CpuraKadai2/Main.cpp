@@ -35,7 +35,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		fps.Update();	//FPS計測
 		
-		
 		sceneManager.Update();
 		sceneManager.Draw();
 
@@ -46,12 +45,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		#endif // DEBUG
 		
+		ScreenFlip();  // 裏画面の内容を表画面に反映
+
 		if (sceneManager.Change() == nullptr)
 		{
 			break;
 		}
-
-		ScreenFlip();  // 裏画面の内容を表画面に反映
 	}
 
 	DxLib_End(); // DXライブラリ使用の終了処理

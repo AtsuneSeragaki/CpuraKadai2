@@ -6,7 +6,6 @@ class GameMainScene : public SceneBase
 private:
 	int stageImg;  // ステージの背景画像
 	int stageImgX,stageImgY;  // ステージの背景画像描画位置
-	
 	int life;      // プレイヤーの残機
 
 public:

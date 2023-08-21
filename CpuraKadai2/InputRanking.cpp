@@ -21,7 +21,7 @@ void InputRanking::Update()
 // 描画処理
 void InputRanking::Draw() const
 {
-#ifdef _DEBUG
+#ifdef DEBUG
 	SetFontSize(16);
 	DrawFormatString(0, 0, 0xffffff, "ランキング入力画面");
 	DrawFormatString(0, 20, 0xffffff, "Aでランキング画面へ");

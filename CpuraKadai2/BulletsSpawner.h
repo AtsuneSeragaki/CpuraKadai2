@@ -1,5 +1,6 @@
 #pragma once
 #include "GameMainScene.h"
+#include "Bullet.h"
 
 class BulletsSpawner
 {
@@ -8,6 +9,7 @@ private:
 	float angle;         // 角度
 	float acceleration;  // 速度の変化量
 	float angulVelocity; // 角度の変化量
+	Bullet bullet;
 
 public:
 	BulletsSpawner();   // コンストラクタ
