@@ -4,6 +4,8 @@
 #include "DxLib.h"
 
 int Player::mileage = 0;
+int Player::pX = 0;
+int Player::pY = 0;
 
 // コンストラクタ
 Player::Player()
@@ -87,4 +89,7 @@ void Player::PlayerMove()
 	{
 		y = 670;
 	}
+
+	pX = x + 40;
+	pY = y + 25;
 }

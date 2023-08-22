@@ -4,15 +4,15 @@
 #include "GameClearScene.h"
 #include "CharaBase.h"
 #include "Player.h"
-#include "Enemy.h"
 #include "Bullet.h"
 #include "BulletsSpawner.h"
+#include "Enemy.h"
 #include "DxLib.h"
 
 Player player;
-Enemy enemy;
 Bullet* bullet;
 BulletsSpawner bulletsSpawner;
+Enemy* enemy;
 
 // コンストラクタ
 GameMainScene::GameMainScene()
@@ -21,11 +21,15 @@ GameMainScene::GameMainScene()
 	stageImgX = 0;
 	stageImgY = 0;
 	life = 0;     // プレイヤーの残機
+	enemy = new Enemy[ENEMY_MAX]();
+	bullet = new Bullet[BULLET_MAX]();
 }
 
 // デストラクタ
 GameMainScene::~GameMainScene()
 {
+	delete[] enemy;
+	delete[] bullet;	
 }
 
 // 更新処理
@@ -33,9 +37,10 @@ void GameMainScene::Update()
 {
 	// プレイヤーの更新処理
 	player.Update();
-	enemy.Update();
 	// 背景画像のスクロール処理
 	BackScrool();
+	enemy->Update();
+	bullet->Update();
 }
 
 // 描画処理
@@ -55,11 +60,8 @@ void GameMainScene::Draw() const
 	DrawGraph(stageImgX - 1280, stageImgY, stageImg, FALSE);
 	// プレイヤーの表示
 	player.Draw();
-	if (InputController::GetBotton(PAD_INPUT_3) == TRUE)
-	{
-		bullet->Draw();
-	}
-	enemy.Draw();
+	bullet->Draw();
+	enemy->Draw();
 }
 
 // 遷移先を指定

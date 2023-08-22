@@ -21,7 +21,7 @@ private:
 	ENEMY enemy00 = { TRUE, 0, 0, 0, -50, 63, 120, 0, 1, 1 };
 
 public:
-	static ENEMY enemy[ENEMY_MAX];
+	static ENEMY enemy;
 	Enemy();   // コンストラクタ
 	~Enemy();  // デストラクタ
 

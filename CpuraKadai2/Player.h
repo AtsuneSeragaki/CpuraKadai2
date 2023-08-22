@@ -12,6 +12,7 @@ private:
 
 public:
 	static int mileage; 
+	static int pX, pY;
 	Player();   // コンストラクタ
 	~Player();  // デストラクタ
 
