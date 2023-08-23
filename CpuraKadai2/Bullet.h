@@ -22,6 +22,7 @@ private:
 	float angulVelocity;  // 角度の変化量
 	int bulletFlg;        // 弾のフラグ(0:何もしない 1:生成＆表示)
 	BULLET bullet[BULLET_MAX];
+	int okFlg;
 
 public:
 	Bullet();   // コンストラクタ

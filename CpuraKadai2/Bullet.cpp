@@ -13,6 +13,7 @@ Bullet::Bullet()
 	acceleration = 0.0f;
 	angulVelocity = 0.0f;
 	bulletFlg = 0;
+	okFlg = 0;
 }
 
 // デストラクタ
@@ -23,20 +24,22 @@ Bullet::~Bullet()
 // 更新処理
 void Bullet::Update()
 {
-	if (InputController::GetBotton(PAD_INPUT_3) == TRUE)
+	if (InputController::GetBottonDown(PAD_INPUT_3) == TRUE)
 	{
 		for (int i = 0; i < BULLET_MAX; i++)
 		{
-			if (bullet[i].flg == 0)
+			if (bullet[i].flg == 0 && okFlg == 0)
 			{
 				bullet[i].flg = 1;
 				bullet[i].x = Player::pX;
 				bullet[i].y = Player::pY;
+				okFlg = 1;
 			}
 		}
 	}
 
-	
+	okFlg = 0;
+
 	MoveBullet();
 	
 }
@@ -50,7 +53,7 @@ void Bullet::Draw() const
 	{
 		if (bullet[i].flg == 1)
 		{
-			DrawCircle(bullet[i].x + 10, bullet[i].y, 5, 0xffffff, TRUE);
+			DrawCircle(bullet[i].x + 10, bullet[i].y, 5, 0x11eeff, TRUE);
 		}
 	}
 }
@@ -72,7 +75,7 @@ void Bullet::MoveBullet()
 		
 		if (bullet[i].x > 1300)
 		{
-			bulletFlg = 0;
+			bullet[i].flg = 0;
 		}
 	}
 	
