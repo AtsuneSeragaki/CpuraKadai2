@@ -15,7 +15,7 @@ BulletsSpawner::~BulletsSpawner()
 {
 }
 
-void BulletsSpawner::Shoot(GameMainScene*)
-{
-	bullet.Draw();
-}
+//void BulletsSpawner::Shoot(GameMainScene*)
+//{
+//	bullet.Draw();
+//}

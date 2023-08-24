@@ -1,18 +1,8 @@
 #include "GameMainScene.h"
 #include "InputController.h"
-#include "GameOverScene.h"
 #include "GameClearScene.h"
-#include "CharaBase.h"
-#include "Player.h"
-#include "Bullet.h"
-#include "BulletsSpawner.h"
-#include "Enemy.h"
+#include "GameOverScene.h"
 #include "DxLib.h"
-
-Player player;
-Bullet* bullet;
-BulletsSpawner bulletsSpawner;
-Enemy* enemy;
 
 // コンストラクタ
 GameMainScene::GameMainScene()
@@ -21,15 +11,29 @@ GameMainScene::GameMainScene()
 	stageImgX = 0;
 	stageImgY = 0;
 	life = 0;     // プレイヤーの残機
-	enemy = new Enemy[ENEMY_MAX]();
-	bullet = new Bullet[BULLET_MAX]();
+	for (int i = 0; i < enemyMax; i++)
+	{
+		enemy[i] = new Enemy;
+	}
+
+	for (int i = 0; i < bulletMax; i++)
+	{
+		bullet[i] = new Bullet;
+	}
 }
 
 // デストラクタ
 GameMainScene::~GameMainScene()
 {
-	delete[] enemy;
-	delete[] bullet;	
+	for (int i = 0; i < enemyMax; i++)
+	{
+		delete enemy[i];
+	}
+	
+	for (int i = 0; i < bulletMax; i++)
+	{
+		delete bullet[i];
+	}
 }
 
 // 更新処理
@@ -39,8 +43,16 @@ void GameMainScene::Update()
 	player.Update();
 	// 背景画像のスクロール処理
 	BackScrool();
-	enemy->Update();
-	bullet->Update();
+	for (int i = 0; i < enemyMax; i++)
+	{
+		enemy[i]->Update();
+	}
+
+	for (int i = 0; i < bulletMax; i++)
+	{
+		bullet[i]->Update();
+	}
+	
 }
 
 // 描画処理
@@ -60,8 +72,15 @@ void GameMainScene::Draw() const
 	DrawGraph(stageImgX - 1280, stageImgY, stageImg, FALSE);
 	// プレイヤーの表示
 	player.Draw();
-	bullet->Draw();
-	enemy->Draw();
+	for (int i = 0; i < enemyMax; i++)
+	{
+		enemy[i]->Draw();
+	}
+
+	for (int i = 0; i < bulletMax; i++)
+	{
+		bullet[i]->Draw();
+	}
 }
 
 // 遷移先を指定

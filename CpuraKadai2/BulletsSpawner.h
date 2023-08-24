@@ -15,6 +15,6 @@ public:
 	BulletsSpawner();   // コンストラクタ
 	~BulletsSpawner();  // デストラクタ
 
-	void Shoot(GameMainScene*);  // SpawnBulletで弾を生成する(引数にゲームメインシーンのポインタを受け取る)
+	//void Shoot(GameMainScene*);  // SpawnBulletで弾を生成する(引数にゲームメインシーンのポインタを受け取る)
 };
 

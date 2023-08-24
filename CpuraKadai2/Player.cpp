@@ -1,5 +1,4 @@
 #include "Player.h"
-#include "GameMainScene.h"
 #include "InputController.h"
 #include "DxLib.h"
 
@@ -18,6 +17,7 @@ Player::Player()
 	score = 0;
 	weapon = 0;	
 	speed = 2;
+
 }
 
 // デストラクタ
@@ -51,7 +51,7 @@ void Player::Hit(int damage)
 void Player::PlayerMove()
 {
 	
-	mileage += speed;
+	mileage += (int)speed;
 	
 
 	if (stickX > 0)
@@ -90,6 +90,6 @@ void Player::PlayerMove()
 		y = 670;
 	}
 
-	pX = x + 40;
-	pY = y + 25;
+	pX = (int)x + 40;
+	pY = (int)y + 25;
 }

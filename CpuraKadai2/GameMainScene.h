@@ -1,7 +1,8 @@
 #pragma once
 #include "SceneBase.h"
-
-
+#include "Player.h"
+#include "Enemy.h"
+#include "Bullet.h"
 
 class GameMainScene : public SceneBase
 {
@@ -9,7 +10,11 @@ private:
 	int stageImg;  // ステージの背景画像
 	int stageImgX,stageImgY;  // ステージの背景画像描画位置
 	int life;      // プレイヤーの残機
-	
+	const int enemyMax = 20;
+	const int bulletMax = 100;
+	Bullet* bullet[100];
+	Player player;
+	Enemy* enemy[20];
 
 public:
 	GameMainScene();   // コンストラクタ

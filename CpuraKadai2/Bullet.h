@@ -1,8 +1,6 @@
 #pragma once
 #include "SphereCollider.h"
 
-#define BULLET_MAX 100
-
 // 敵機の構造体
 struct BULLET 
 {
@@ -21,8 +19,10 @@ private:
 	float acceleration;   // 速度の変化量
 	float angulVelocity;  // 角度の変化量
 	int bulletFlg;        // 弾のフラグ(0:何もしない 1:生成＆表示)
-	BULLET bullet[BULLET_MAX];
+	const int bulletMax = 100;
+	BULLET bullet;
 	int okFlg;
+	int bulletImg;
 
 public:
 	Bullet();   // コンストラクタ
