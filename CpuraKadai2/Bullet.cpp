@@ -36,7 +36,7 @@ void Bullet::Update()
 		}
 	}
 
-	//okFlg = 0;
+	okFlg = 0;
 
 	MoveBullet();
 	
@@ -50,8 +50,8 @@ void Bullet::Draw() const
 	
 	if (bullet.flg == 1)
 	{
-		//DrawCircle(bullet[i].x + 10, bullet[i].y, 5, 0x11eeff, TRUE);
-		DrawGraph(bullet.x + 10, bullet.y - 20, bulletImg, TRUE);
+		DrawCircle(bullet.x + 10, bullet.y, 5, 0x11eeff, TRUE);
+		/*DrawGraph(bullet.x + 10, bullet.y - 20, bulletImg, TRUE);*/
 	}
 	
 }
@@ -64,7 +64,6 @@ void Bullet::GetDamage()
 // íeÇÃà⁄ìÆèàóù
 void Bullet::MoveBullet()
 {
-
 	if (bullet.flg == 1)
 	{
 		bullet.x += 3;

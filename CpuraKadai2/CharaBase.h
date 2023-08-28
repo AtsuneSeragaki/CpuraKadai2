@@ -1,6 +1,8 @@
 #pragma once
 #include "SphereCollider.h"
 
+class GameMainScene;
+
 class CharaBase : public SphereCollider
 {
 protected:

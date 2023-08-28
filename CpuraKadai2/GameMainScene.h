@@ -12,6 +12,9 @@ private:
 	int life;      // プレイヤーの残機
 	const int enemyMax = 20;
 	const int bulletMax = 100;
+	int okFlg;
+	int Fcnt;
+	int okFlg2;
 	Bullet* bullet[100];
 	Player player;
 	Enemy* enemy[20];

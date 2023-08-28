@@ -1,13 +1,15 @@
 #pragma once
 #include "CharaBase.h"
 
+class BulletSpawner;
+
 class Player : public CharaBase
 {
 private:
 	int stickX, stickY;
 	int playerImg;
 	int score;   // ƒXƒRƒA
-	int weapon;  // •Ší()
+	BulletSpawner* weapon;
 
 public:
 	static int mileage; 

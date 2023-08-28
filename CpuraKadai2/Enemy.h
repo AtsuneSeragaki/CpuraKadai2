@@ -1,6 +1,8 @@
 #pragma once
 #include "CharaBase.h"
 
+class NwaySpawner;
+
 // 敵機の構造体
 struct ENEMY {
 	int flg = 0; // 使用フラグ
@@ -15,8 +17,8 @@ struct ENEMY {
 class Enemy:public CharaBase
 {
 private:
-	int weapon; // 武器(BulletsSpawnerの子クラス)
-	ENEMY enemy00 = { 1, 0, 0, 0, -50, 63, 120, 0, 1, 1 };
+	NwaySpawner* weapon; // 武器(BulletsSpawnerの子クラス)
+	ENEMY enemy00 = { 1, 0, 0, 0, -10, 63, 120, 0, 1, 1 };
 	const int enemyMax = 20;
 
 public:

@@ -15,9 +15,7 @@ Player::Player()
 	x = 100.0f;
 	y = 360.0f;
 	score = 0;
-	weapon = 0;	
 	speed = 2;
-
 }
 
 // デストラクタ

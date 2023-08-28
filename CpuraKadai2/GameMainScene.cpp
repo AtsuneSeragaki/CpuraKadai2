@@ -11,14 +11,18 @@ GameMainScene::GameMainScene()
 	stageImgX = 0;
 	stageImgY = 0;
 	life = 0;     // プレイヤーの残機
+	okFlg = 0;
+	Fcnt = 0;
+	okFlg2 = 0;
+
 	for (int i = 0; i < enemyMax; i++)
 	{
-		enemy[i] = new Enemy;
+		enemy[i] = nullptr;
 	}
 
 	for (int i = 0; i < bulletMax; i++)
 	{
-		bullet[i] = new Bullet;
+		bullet[i] = nullptr;
 	}
 }
 
@@ -39,20 +43,64 @@ GameMainScene::~GameMainScene()
 // 更新処理
 void GameMainScene::Update()
 {
+	Fcnt++;
+
 	// プレイヤーの更新処理
 	player.Update();
 	// 背景画像のスクロール処理
 	BackScrool();
+
+	if (InputController::GetBottonDown(PAD_INPUT_3) == TRUE)
+	{
+		okFlg = 1;
+		SpawnBullet();
+	}
+
 	for (int i = 0; i < enemyMax; i++)
 	{
-		enemy[i]->Update();
+		if (enemy[i] != nullptr)
+		{
+			enemy[i]->Update();
+		}
+
 	}
 
 	for (int i = 0; i < bulletMax; i++)
 	{
-		bullet[i]->Update();
+		if (bullet[i] != nullptr)
+		{
+			if (bullet[i]->bullet.x > 1300)
+			{
+				bullet[i] = nullptr;
+			}
+			else
+			{
+				bullet[i]->Update();
+			}
+		}
 	}
 	
+	if (Fcnt > 60)
+	{
+		okFlg2 = 1;
+
+		for (int i = 0; i < enemyMax; i++)
+		{
+			if (enemy[i] == nullptr && okFlg2 != 0)
+			{
+				enemy[i] = new Enemy;
+				okFlg2++;
+
+				if (okFlg2 > 3)
+				{
+					okFlg2 = 0;
+				}
+			}
+		}
+
+	
+		Fcnt = 0;
+	}
 }
 
 // 描画処理
@@ -72,15 +120,24 @@ void GameMainScene::Draw() const
 	DrawGraph(stageImgX - 1280, stageImgY, stageImg, FALSE);
 	// プレイヤーの表示
 	player.Draw();
+
 	for (int i = 0; i < enemyMax; i++)
 	{
-		enemy[i]->Draw();
+		if (enemy[i] != nullptr)
+		{
+			enemy[i]->Draw();
+		}
 	}
 
 	for (int i = 0; i < bulletMax; i++)
 	{
-		bullet[i]->Draw();
+		if (bullet[i] != nullptr)
+		{
+			bullet[i]->Draw();
+		}
 	}
+
+	DrawFormatString(100, 40, 0xff0000, "%d", Fcnt);
 }
 
 // 遷移先を指定
@@ -124,4 +181,12 @@ void GameMainScene::BackScrool()
 // 弾の配列に新しくデータを作成する
 void GameMainScene::SpawnBullet()
 {
+	for (int i = 0; i < bulletMax; i++)
+	{
+		if (bullet[i] == nullptr && okFlg == 1)
+		{
+			bullet[i] = new Bullet;
+			okFlg = 0;
+		}
+	}
 }

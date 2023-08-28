@@ -1,14 +1,7 @@
 #pragma once
 #include "SphereCollider.h"
 
-// 敵機の構造体
-struct BULLET 
-{
-	int flg = 0; // 使用フラグ
-	//int img = LoadGraph("images/cone.bmp"); // 画像
-	int x = 0, y = 0; // 座標、幅、高さ
-	int speed = 3; // 移動速度
-};
+
 
 class Bullet : public SphereCollider
 {
@@ -20,11 +13,20 @@ private:
 	float angulVelocity;  // 角度の変化量
 	int bulletFlg;        // 弾のフラグ(0:何もしない 1:生成＆表示)
 	const int bulletMax = 100;
-	BULLET bullet;
-	int okFlg;
 	int bulletImg;
 
 public:
+	int okFlg;
+	// 敵機の構造体
+	struct BULLET
+	{
+		int flg = 0; // 使用フラグ
+		//int img = LoadGraph("images/cone.bmp"); // 画像
+		int x = 0, y = 0; // 座標、幅、高さ
+		int speed = 3; // 移動速度
+	};
+
+	BULLET bullet;
 	Bullet();   // コンストラクタ
 	~Bullet();  // デストラクタ
 

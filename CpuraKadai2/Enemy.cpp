@@ -7,7 +7,6 @@ ENEMY Enemy::enemy;
 // コンストラクタ
 Enemy::Enemy()
 {
-	weapon = 0;
 }
 
 // デストラクタ
@@ -57,7 +56,7 @@ int Enemy::CreateEnemy()
 		enemy.img = LoadGraph("images/cone.bmp");
 		enemy.x = 1300;
 		enemy.y = GetRand(6) * 90 + 40;
-		enemy.speed = 3;
+		enemy.speed = 2;
 		// 成功
 		return TRUE;
 	}
