@@ -8,11 +8,12 @@ private:
 	SceneBase* next_scene;   // 次のシーン
 
 public:
-	SceneManager();     // コンストラクタ
-	SceneManager(SceneBase* scene);     // 引数付きコンストラクタ(遷移先を指定)
-	~SceneManager();    // デストラクタ
-	void Update() override;              // 更新処理
-	void Draw() const override;          // 描画処理
-	SceneBase* Change() override;    // 遷移先の指定
+	SceneManager();                    // コンストラクタ
+	SceneManager(SceneBase* scene);    // 引数付きコンストラクタ(遷移先を指定)
+	~SceneManager();                   // デストラクタ
+
+	void Update() override;            // 更新処理
+	void Draw() const override;        // 描画処理
+	SceneBase* Change() override;      // 遷移先の指定
 };
 

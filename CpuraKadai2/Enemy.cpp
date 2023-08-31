@@ -23,9 +23,7 @@ void Enemy::Update()
 // •`‰æˆ—
 void Enemy::Draw() const
 {
-	
 	DrawGraph(enemy.x,enemy.y,enemy.img,TRUE);
-	
 }
 
 // “G‚ÌˆÚ“®ˆ—
@@ -48,6 +46,7 @@ void Enemy::EnemyMove()
 	}
 }
 
+// “G‚Ì¶¬ˆ—
 int Enemy::CreateEnemy()
 {	
 	if (enemy.flg == FALSE)

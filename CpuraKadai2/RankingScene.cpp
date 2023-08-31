@@ -35,7 +35,7 @@ SceneBase* RankingScene::Change()
 {
 	if (InputController::GetBotton(PAD_INPUT_A))
 	{
-		// Zキーが押された＆メニューナンバー0でゲームメインへ
+		// Aボタンが押されたらタイトルへ
 		return new TitleScene();
 	}
 

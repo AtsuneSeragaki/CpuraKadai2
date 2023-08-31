@@ -35,15 +35,17 @@ void GameClearScene::Draw() const
 // 遷移先を指定
 SceneBase* GameClearScene::Change()
 {
-	if (InputController::GetBottonDown(PAD_INPUT_5) == TRUE)
+	// 仮
+	if (InputController::GetBottonDown(PAD_INPUT_1) == TRUE)
 	{
-		// Zキーが押された＆メニューナンバー0でゲームメインへ
+		// Aボタンが押されたらタイトルへ
 		return new TitleScene();
 	}
 
-	if (InputController::GetBottonDown(PAD_INPUT_6) == TRUE)
+	// 仮
+	if (InputController::GetBottonDown(PAD_INPUT_2) == TRUE)
 	{
-		// Zキーが押された＆メニューナンバー0でゲームメインへ
+		// Bボタンが押されたらランキング入力へ
 		return new InputRanking();
 	}
 

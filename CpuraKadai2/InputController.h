@@ -3,33 +3,15 @@
 class InputController
 {
 public:
-	static int botton_flg;
-	static int now_botton;
-	static int old_botton;
+	static int botton_flg;  // ボタンフラグ(押された瞬間用)
+	static int now_botton;  // ボタンフラグ(現在押されているボタン)
+	static int old_botton;  // ボタンフラグ(ひとつ前に押されていたボタン)
+	static int Xbuf;        // ジョイスティックのX座標
+	static int Ybuf;        // ジョイスティックのY座標
+	
+	static void Update();  // 更新処理
 
-	static int Xbuf;
-	static int Ybuf;
-
-	static int X_flg;
-	static int X_now;
-	static int X_old;
-
-	static int Y_flg;
-	static int Y_now;
-	static int Y_old;
-
-	static void Update();
-
-	//押している間信号を送る
-	static int GetBotton(int botton);
-
-	//押した瞬間信号を送る
-	static int GetBottonDown(int botton);
-
-	static int GetJoyStickX(int x);
-	static int GetJoyStickY(int y);
-
-	static int GetJoyStickXOnes(int x);
-	static int GetJoyStickYOnes(int y);
+	static int GetBotton(int botton);      // ボタンを押している間TRUE返す処理
+	static int GetBottonDown(int botton);  // ボタンを押したかどうかを返す処理
 };
 

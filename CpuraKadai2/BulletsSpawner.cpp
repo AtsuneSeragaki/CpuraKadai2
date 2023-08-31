@@ -15,6 +15,7 @@ BulletsSpawner::~BulletsSpawner()
 {
 }
 
+// SpawnBulletで弾を生成する(引数にゲームメインシーンのポインタを受け取る)
 void BulletsSpawner::Shoot(GameMainScene* gamemain)
 {
 	

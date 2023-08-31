@@ -58,15 +58,15 @@ void TitleScene::Draw() const
 // 遷移先の指定処理
 SceneBase* TitleScene::Change()
 {
-	if (InputController::GetBottonDown(PAD_INPUT_A))
+	if (InputController::GetBottonDown(PAD_INPUT_1))
 	{
-		// Zキーが押された＆メニューナンバー0でゲームメインへ
+		// Aボタンが押されたらゲームメインへ
 		return new GameMainScene();
 	}
 
-	if (InputController::GetBottonDown(PAD_INPUT_B))
+	if (InputController::GetBottonDown(PAD_INPUT_2))
 	{
-		// Zキーが押された＆メニューナンバー0でゲームメインへ
+		// Bボタンが押されたらランキングへ
 		return new RankingScene();
 	}
 

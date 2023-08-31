@@ -20,7 +20,7 @@ FPS::~FPS()
 }
 
 // 更新処理(FPS計測処理)
-bool FPS::Update()
+void FPS::Update()
 {
 	if (mCount == 0) 
 	{ //1フレーム目なら時刻を記憶
@@ -37,14 +37,12 @@ bool FPS::Update()
 
 	mCount++;
 	mNow = GetNowCount();
-
-	return true;
 }
 
 // 描画処理
 void FPS::Draw() const
 {
-	DrawFormatString(0, 700, GetColor(255, 255, 255), "%.1f", mFps);
+	// DrawFormatString(0, 700, GetColor(255, 255, 255), "%.1f", mFps);
 }
 
 // FPS同期処理

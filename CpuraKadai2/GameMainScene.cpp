@@ -10,10 +10,10 @@ GameMainScene::GameMainScene()
 	stageImg = LoadGraph("images/stage_background.png");
 	stageImgX = 0;
 	stageImgY = 0;
-	life = 0;     // プレイヤーの残機
+	life = 0;  
 	okFlg = 0;
-	Fcnt = 0;
 	okFlg2 = 0;
+	Fcnt = 0;
 
 	for (int i = 0; i < enemyMax; i++)
 	{
@@ -50,12 +50,14 @@ void GameMainScene::Update()
 	// 背景画像のスクロール処理
 	BackScrool();
 
+	// Xボタンを押したら弾を生成
 	if (InputController::GetBottonDown(PAD_INPUT_3) == TRUE)
 	{
 		okFlg = 1;
 		SpawnBullet();
 	}
 
+	// 敵の生成
 	for (int i = 0; i < enemyMax; i++)
 	{
 		if (enemy[i] != nullptr)
@@ -65,6 +67,7 @@ void GameMainScene::Update()
 
 	}
 
+	// 弾が画面外に出たらデータを消去
 	for (int i = 0; i < bulletMax; i++)
 	{
 		if (bullet[i] != nullptr)
@@ -80,8 +83,10 @@ void GameMainScene::Update()
 		}
 	}
 	
+	// フレームカウントが60超えたらリセット
 	if (Fcnt > 60)
 	{
+		// 敵の生成ボタンを押したら一個だけ弾を生成する用フラグ
 		okFlg2 = 1;
 
 		for (int i = 0; i < enemyMax; i++)
@@ -97,8 +102,7 @@ void GameMainScene::Update()
 				}
 			}
 		}
-
-	
+		
 		Fcnt = 0;
 	}
 }
@@ -106,14 +110,6 @@ void GameMainScene::Update()
 // 描画処理
 void GameMainScene::Draw() const
 {
-#ifdef _DEBUG
-	SetFontSize(16);
-	DrawFormatString(0, 0, 0xffffff, "ゲームメイン画面");
-	DrawFormatString(0, 20, 0xffffff, "Aでゲームオーバー画面へ");
-	DrawFormatString(0, 40, 0xffffff, "Bでゲームクリア画面へ");
-
-#endif // DEBUG
-
 	// 背景画像表示(左側)
 	DrawGraph(stageImgX, stageImgY, stageImg, FALSE);
 	// 背景画像表示(右側)
@@ -121,6 +117,7 @@ void GameMainScene::Draw() const
 	// プレイヤーの表示
 	player.Draw();
 
+	// 敵の表示
 	for (int i = 0; i < enemyMax; i++)
 	{
 		if (enemy[i] != nullptr)
@@ -129,6 +126,7 @@ void GameMainScene::Draw() const
 		}
 	}
 
+	// 弾の表示
 	for (int i = 0; i < bulletMax; i++)
 	{
 		if (bullet[i] != nullptr)
@@ -136,8 +134,6 @@ void GameMainScene::Draw() const
 			bullet[i]->Draw();
 		}
 	}
-
-	DrawFormatString(100, 40, 0xff0000, "%d", Fcnt);
 }
 
 // 遷移先を指定
@@ -146,14 +142,14 @@ SceneBase* GameMainScene::Change()
 	
 	if (InputController::GetBottonDown(PAD_INPUT_1) == TRUE)
 	{
-		// Zキーが押された＆メニューナンバー0でゲームメインへ
+		// Aボタンが押されたらゲームクリアへ
 		return new GameClearScene();
 	}
 
 	if (InputController::GetBottonDown(PAD_INPUT_2) == TRUE)
 	{
-		// Zキーが押された＆メニューナンバー0でゲームメインへ
-		return new GameClearScene();
+		// Bボタンが押されたらゲームオーバーへ
+		return new GameOverScene();
 	}
 
 	return this;

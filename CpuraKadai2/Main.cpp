@@ -5,12 +5,10 @@
 #include "TitleScene.h"
 #include "GameMainScene.h"
 
-
-
 // プログラムは WinMain から始まります
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-	SetMainWindowText("シューティングゲーム"); // タイトルを test に変更
+	SetMainWindowText("シューティングゲーム"); // タイトルを変更
 
 	ChangeWindowMode(TRUE);		// ウィンドウモードで起動
 
@@ -34,6 +32,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		ClearDrawScreen();  // 画面の初期化
 
 		fps.Update();	//FPS計測
+
+		InputController::Update(); // コントローラー入力更新処理
 		
 		sceneManager.Update();
 		sceneManager.Draw();

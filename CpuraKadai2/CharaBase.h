@@ -11,6 +11,8 @@ protected:
 	int image;    // 画像用変数
 
 public:
+
+	// コンストラクタ
 	CharaBase()
 	{
 		x = 0;
@@ -19,10 +21,11 @@ public:
 		speed = 0;
 	};
 
+	// デストラクタ
 	~CharaBase(){};
 
-	virtual void Update() = 0;  // 更新処理(引数にゲームメインシーンのポインタを受け取る)
-	virtual void Draw() const = 0;            // 描画処理
+	virtual void Update() = 0;       // 更新処理(引数にゲームメインシーンのポインタを受け取る)
+	virtual void Draw() const = 0;   // 描画処理
 
 	virtual void Hit(int damage) = 0;  // ダメージを受けた時の処理(引数でダメージを受け取る)
 };
